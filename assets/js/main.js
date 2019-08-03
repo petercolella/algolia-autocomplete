@@ -1,8 +1,8 @@
 const client = algoliasearch(config.APPLICATION_ID, config.SEARCH_ONLY_API_KEY);
 const index = client.initIndex('dev_DRINKS');
-autocomplete('#search-input', { hint: false }, [
+autocomplete('#search-input', { hint: true }, [
   {
-    source: autocomplete.sources.hits(index, { hitsPerPage: 5 }),
+    source: autocomplete.sources.hits(index /*{ hitsPerPage: 5 }*/),
     displayKey: 'strDrink',
     templates: {
       suggestion: function(suggestion) {
